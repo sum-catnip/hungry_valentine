@@ -7,6 +7,8 @@ Just running the executable should work (i hope).
 # howto play
 use your tools (left side) with the keyboard keys 1-4 to process the ingredients and complete the recipes (bottom left side).
 
+There is no progress indicator because i totally ran out of time.
+
 Every recipe only has one of each ingredient. Using the wrong tool will waste the ingredient.
 
 # Recipes
