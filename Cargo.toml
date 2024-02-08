@@ -7,6 +7,4 @@ edition = "2021"
 
 [dependencies]
 bevy = "0.12.1"
-bevy-inspector-egui = "0.22.1"
-bevy_egui = "0.24.0"
 rand = "0.8.5"
