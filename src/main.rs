@@ -201,7 +201,7 @@ fn process_ingredient(
                     .find(|(i, process)| process.ingredient == *ingredient_id && process.processing == *tool_id)
                     .map(|(i, _)| (e, i))
             }) else {
-                cmd.entity(evt.active);
+                cmd.entity(evt.active).despawn();
                 continue;
             };
 
@@ -439,7 +439,7 @@ fn spawn_foods(mut cmd: Commands, foods: Query<(Entity, &Tex, &FoodIngredients),
 fn spawn_ingredients(mut cmd: Commands, time: Res<Time>, mut timer: ResMut<IngredientSpawnTimer>, cfg: Res<ThrowConfig>, foods: Query<&Active, With<Food>>, food_ingredients: Query<&FoodIngredients>, ingredients: Res<Ingredients>, tex: Query<&Tex, With<Ingredient>>, w: Query<&Window>, score: Res<Score>) {
     if ! timer.0.tick(time.delta()).just_finished() { return; }
 
-    timer.0.set_duration(Duration::from_secs_f32((INGREDIENT_SPAWN - (score.0 as f32 * 0.3)).max(0.3)));
+    timer.0.set_duration(Duration::from_secs_f32((INGREDIENT_SPAWN - (score.0 as f32 * 0.5)).max(0.3)));
     timer.0.reset();
 
     let Some(food) = foods.iter().choose(&mut rand::thread_rng()) else { return };
